@@ -25,3 +25,5 @@ stow fish
 stow git
 stow macos
 stow sublime
+stow vim
+
