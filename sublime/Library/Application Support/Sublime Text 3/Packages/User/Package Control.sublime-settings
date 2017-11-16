@@ -1,0 +1,17 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Anaconda",
+		"Emmet",
+		"GitGutter",
+		"Material Theme",
+		"Package Control",
+		"Solarized Color Scheme",
+		"SublimeLinter",
+		"SublimeLinter-javac"
+	]
+}
