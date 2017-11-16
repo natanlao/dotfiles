@@ -4,7 +4,8 @@
 
 # Install packages
 brew install python git fish vim ack git wget tmux python3 mosh stow
-brew cask install google-chrome spotify google-chrome sublime-text spectacle
+brew tap caskroom/fonts
+brew cask install google-chrome spotify google-chrome sublime-text spectacle caskroom/fonts/font-source-code-pro
 
 # Set fish as default shell
 sudo echo "/usr/local/bin/fish" >> /etc/shells
@@ -21,9 +22,12 @@ pip3 install pylint
 pip3 install virtualenv || sudo pip3 install virtualenv
 
 # Install dotfiles
-stow fish
-stow git
-stow macos
-stow sublime
-stow vim
+stow -t ~ fish
+stow -t ~ git
+stow -t ~ macos
+stow -t ~ sublime
+stow -t ~ vim
+
+# Post-dotfiles setup
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
