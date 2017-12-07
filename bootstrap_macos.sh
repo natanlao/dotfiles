@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
+
+# Elevate to root and keep it
+# Gratefully borrowed from https://github.com/mathiasbynens/dotfiles
+sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
 # Install homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install packages
 brew install python git fish vim ack git wget tmux python3 mosh stow
 brew tap caskroom/fonts
-brew cask install google-chrome spotify google-chrome sublime-text spectacle caskroom/fonts/font-source-code-pro
+brew tap caskroom/drivers
+brew cask install google-chrome spotify google-chrome sublime-text spectacle macpass caskroom/fonts/font-source-code-pro displaylink
 
 # Set fish as default shell
-sudo echo "/usr/local/bin/fish" >> /etc/shells
+sudo sh -c 'echo "/usr/local/bin/fish" >> /etc/shells'
 chsh -s /usr/local/bin/fish
 
 # Perform a little more setup for Sublime Text
@@ -28,6 +35,8 @@ stow -t ~ macos
 stow -t ~ sublime
 stow -t ~ vim
 
-# Post-dotfiles setup
+# Post-dotfiles macOS config
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
-
+defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+defaults write -g com.apple.mouse.scaling 2
+defaults write -g com.apple.trackpad.scaling 3.5
