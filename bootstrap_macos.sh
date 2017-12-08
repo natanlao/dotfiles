@@ -36,7 +36,9 @@ stow -t ~ sublime
 stow -t ~ vim
 
 # Post-dotfiles macOS config
-defaults write com.apple.terminal SecureKeyboardEntry -bool true
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 defaults write -g com.apple.mouse.scaling 2
 defaults write -g com.apple.trackpad.scaling 3.5
+
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
+sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
