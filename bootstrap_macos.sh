@@ -31,14 +31,20 @@ pip3 install virtualenv || sudo pip3 install virtualenv
 # Install dotfiles
 stow -t ~ fish
 stow -t ~ git
-stow -t ~ macos
 stow -t ~ sublime
 stow -t ~ vim
+
+# Terminal.app can't be easily configured with `stow`
+open macos/Smyck.terminal
+sleep 1
+defaults write com.apple.terminal "Default Window Settings" -string "Smyck"
+defaults write com.apple.terminal "Startup Window Settings" -string "Smyck"
+defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 # Post-dotfiles macOS config
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 defaults write -g com.apple.mouse.scaling 2
 defaults write -g com.apple.trackpad.scaling 3.5
 
-defaults write com.apple.terminal SecureKeyboardEntry -bool true
 sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+
