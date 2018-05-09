@@ -1,6 +1,7 @@
 {
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
+	"dpi_scale": 1.9,
 	"ensure_newline_at_eof_on_save": true,
 	"font_face": "Inconsolata",
 	"font_options":

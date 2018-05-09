@@ -15,8 +15,8 @@ brew tap caskroom/drivers
 brew cask install google-chrome spotify google-chrome sublime-text spectacle macpass caskroom/fonts/font-source-code-pro displaylink
 
 # Set fish as default shell
-sudo sh -c 'echo "/usr/local/bin/fish" >> /etc/shells'
-chsh -s /usr/local/bin/fish
+sudo sh -c 'echo "`which fish`" >> /etc/shells'
+chsh -s `which fish`
 
 # Perform a little more setup for Sublime Text
 # Do this before installing dotfiles so that Sublime config is properly installed
@@ -31,7 +31,7 @@ pip3 install virtualenv || sudo pip3 install virtualenv
 # Install dotfiles
 stow -t ~ fish
 stow -t ~ git
-stow -t ~ sublime
+stow -t ~/Library/Application\ Support/Sublime\ Text\ 3/ sublime
 stow -t ~ vim
 
 # Terminal.app can't be easily configured with `stow`
