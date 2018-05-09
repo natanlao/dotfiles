@@ -27,5 +27,6 @@ sudo apt-get install -y sublime-text
 stow -t ~ fish
 stow -t ~ git
 stow -t ~ vim
+stow -t ~ i3
 stow -t ~/.config/sublime-text-3/ sublime
 
