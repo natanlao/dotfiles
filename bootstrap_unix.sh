@@ -6,7 +6,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install software
 sudo apt update
-sudo apt install -y git fish vim git wget tmux python3 mosh stow python-dev build-essential python-pip
+sudo apt install -y git fish vim git wget tmux python3 mosh stow python-dev build-essential python-pip playerctl xautolock i3
 # ack-grep not currently available
 
 # Set fish as the default shell
