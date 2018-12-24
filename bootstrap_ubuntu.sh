@@ -14,7 +14,7 @@ sudo sh -c 'echo `which fish` >> /etc/shells'
 chsh -s `which fish`
 
 # Install virtualenv
-pip install virtualenv || sudo pip install virtualenv
+pip3 install virtualenv || sudo pip3 install virtualenv
 
 # Install sublime
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
