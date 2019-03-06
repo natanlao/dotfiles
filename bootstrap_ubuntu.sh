@@ -28,5 +28,6 @@ stow -t ~ fish
 stow -t ~ git
 stow -t ~ vim
 stow -t ~ i3
+stow -t ~ ack
 mkdir -p ~/.config/sublime-text-3/
 stow -t ~/.config/sublime-text-3/ sublime
