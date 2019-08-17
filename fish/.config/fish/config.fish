@@ -19,3 +19,7 @@ if python -m platform | grep -qi Ubuntu
     alias pbcopy "xclip -selection clipboard"
     alias pbpaste "xclip -selection clipboard -o"
 end
+
+function assume
+    eval (assume-role $argv)
+end
