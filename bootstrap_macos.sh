@@ -12,7 +12,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 brew install python git fish vim ack git wget tmux python3 mosh stow
 brew tap caskroom/fonts
 brew tap caskroom/drivers
-brew cask install google-chrome spotify google-chrome sublime-text spectacle macpass caskroom/fonts/font-source-code-pro displaylink
+brew cask install google-chrome spotify google-chrome sublime-text spectacle macpass caskroom/fonts/font-source-code-pro displaylink qlstephen
 
 # Set fish as default shell
 sudo sh -c 'echo "`which fish`" >> /etc/shells'
