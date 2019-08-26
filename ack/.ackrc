@@ -1,5 +1,5 @@
 --ignore-dir=venv/
 --ignore-dir=.git/
---ignore-dir=venv-*/
+--ignore-dir=match:/(venv\-).*/
 --ignore-file=match:/(\.coverage.).*
 --ignore-dir=.mypy_cache/
