@@ -9,7 +9,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 # Install packages
-brew install python git fish vim ack git wget tmux python3 mosh stow
+brew install python git fish vim ack git wget tmux python3 mosh stow rsync
 brew tap caskroom/fonts
 brew tap caskroom/drivers
 brew cask install google-chrome spotify google-chrome sublime-text spectacle macpass caskroom/fonts/font-source-code-pro displaylink qlstephen
