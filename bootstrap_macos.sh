@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # Elevate to root and keep it
 # Gratefully borrowed from https://github.com/mathiasbynens/dotfiles
