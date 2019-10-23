@@ -104,3 +104,6 @@ endif
 
 " Auto indent
 set autoindent
+
+" Show real tabs in *.go files
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab
