@@ -7,7 +7,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Install software
 sudo apt update
-sudo apt install -y git fish vim git wget tmux python3 mosh stow python-dev build-essential python3-pip xautolock i3 xclip firefox xinit ack
+sudo apt install -y fish vim git wget tmux python3 mosh stow python-dev build-essential python3-pip xautolock i3 xclip firefox xinit ack
 
 # Set fish as the default shell
 sudo sh -c 'echo `which fish` >> /etc/shells'
