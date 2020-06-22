@@ -3,3 +3,5 @@
 --ignore-dir=match:/(venv\-).*/
 --ignore-file=match:/(\.coverage.).*
 --ignore-dir=.mypy_cache/
+--ignore-dir=__pycache__/
+--ignore-dir=.venv/
