@@ -36,9 +36,6 @@ set backupskip=/tmp/*,/private/tmp/*
 " Respect modeline in files
 set modeline
 set modelines=4
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
 " Enable line numbers
 set number
 " Enable syntax highlighting
@@ -100,10 +97,26 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
     " Treat .md files as Markdown
     autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+    " Show real tabs in *.go files
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab
 endif
 
 " Auto indent
 set autoindent
 
-" Show real tabs in *.go files
-autocmd BufNewFile,BufRead *.go setlocal noexpandtab
+""" Gratefully stolen from charlesreid1/mac-dotfiles:.vimrc
+filetype plugin indent on
+set nofoldenable
+" Disable one-second delay when pressing O
+set noesckeys
+set ttimeoutlen=5
+
+" now you have to do this a second time
+" (after the above lines)
+set nocompatible
+" http://blog.sanctum.geek.nz/vim-annoyances/
+" don't break words with wrap on
+set linebreak
+set synmaxcol=200
+set smartcase
+
