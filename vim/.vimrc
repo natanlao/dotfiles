@@ -96,7 +96,8 @@ if has("autocmd")
     " Treat .json files as .js
     autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
     " Treat .md files as Markdown
-    autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+    autocmd BufNewFile,BufRead *.md setlocal filetype=markdown wrap tw=80
+    autocmd BufNewFile,BufRead *.markdown setlocal wrap tw=80
     " Show real tabs in *.go files
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab
 endif
