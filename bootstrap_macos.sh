@@ -35,6 +35,7 @@ stow -t ~ git
 stow -t ~/Library/Application\ Support/Sublime\ Text\ 3/ sublime
 stow -t ~ vim
 stow -t ~ ack
+stow -t ~ bash
 
 # Terminal.app can't be easily configured with `stow`
 open macos/Smyck.terminal
