@@ -8,25 +8,25 @@ function fish_prompt --description 'Write out the prompt'
 
         function __fish_repaint_user --on-variable fish_color_user --description "Event handler, repaint when fish_color_user changes"
             if status --is-interactive
-                commandline -f repaint ^/dev/null
+                commandline -f repaint 2>/dev/null
             end
         end
 
         function __fish_repaint_host --on-variable fish_color_host --description "Event handler, repaint when fish_color_host changes"
             if status --is-interactive
-                commandline -f repaint ^/dev/null
+                commandline -f repaint 2>/dev/null
             end
         end
 
         function __fish_repaint_status --on-variable fish_color_status --description "Event handler; repaint when fish_color_status changes"
             if status --is-interactive
-                commandline -f repaint ^/dev/null
+                commandline -f repaint 2>/dev/null
             end
         end
 
         function __fish_repaint_bind_mode --on-variable fish_key_bindings --description "Event handler; repaint when fish_key_bindings changes"
             if status --is-interactive
-                commandline -f repaint ^/dev/null
+                commandline -f repaint 2>/dev/null
             end
         end
 
@@ -45,7 +45,7 @@ function fish_prompt --description 'Write out the prompt'
     set -l color_cwd
     set -l prefix
     set -l suffix
-    switch $USER
+    switch "$USER"
         case root toor
             if set -q fish_color_cwd_root
                 set color_cwd $fish_color_cwd_root
@@ -63,5 +63,10 @@ function fish_prompt --description 'Write out the prompt'
         set prompt_status ' ' (set_color $fish_color_status) "[$last_status]" "$normal"
     end
 
-    echo -n -s (set_color $fish_color_user) "$USER" $normal @ (set_color $fish_color_host) (hostname) $normal ' ' (set_color $color_cwd) (prompt_pwd) $normal (__fish_vcs_prompt) $normal $prompt_status $suffix " "
+    set -l prompt_whoami
+    if begin set -q SSH_CLIENT; or set -q SSH_TTY; end
+        set prompt_whoami (set_color $fish_color_user) "$USER" "$normal" '@' (set_color $fish_color_host) (prompt_hostname) "$normal" ' '
+    end
+
+    echo -n -s $prompt_whoami (set_color $color_cwd) (prompt_pwd) $normal (__fish_vcs_prompt) $normal $prompt_status $suffix " "
 end
