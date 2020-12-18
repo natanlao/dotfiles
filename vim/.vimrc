@@ -100,6 +100,7 @@ if has("autocmd")
     autocmd BufNewFile,BufRead *.markdown setlocal wrap tw=80
     " Show real tabs in *.go files
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab
+    autocmd BufNewFile,BufRead cpanfile setlocal filetype=perl
 endif
 
 " Auto indent
@@ -120,4 +121,5 @@ set nocompatible
 set linebreak
 set synmaxcol=200
 set smartcase
-
+" Ignore these extensions when autocompleting filenames
+set wildignore=*.o,*.obj,*.bak,*.exe,.git,.git/*,*.pyc
