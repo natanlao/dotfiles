@@ -23,3 +23,5 @@ end
 function assume
     eval (assume-role $argv)
 end
+
+pyenv init - | source

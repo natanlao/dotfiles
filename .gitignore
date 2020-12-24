@@ -1,2 +1,4 @@
 *.swp
 vim/.vim/swap/
+fish/.config/fish/*.fish.backup
+fish/.config/fish/fish_variables
