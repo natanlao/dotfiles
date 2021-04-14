@@ -30,15 +30,14 @@ pip3 install pylint
 pip3 install virtualenv || sudo pip3 install virtualenv
 
 # Install dotfiles
-stow -t ~ fish
-stow -t ~ git
-stow -t ~/Library/Application\ Support/Sublime\ Text\ 3/ sublime
-stow -t ~ vim
-stow -t ~ ack
-stow -t ~ bash
+stow -t ~ ../common/ack
+stow -t ~ ../common/bash
+stow -t ~ ../common/fish
+stow -t ~ ../common/git
+stow -t ~ ../common/vim
 
 # Terminal.app can't be easily configured with `stow`
-open macos/Smyck.terminal
+open Smyck.terminal
 sleep 1
 defaults write com.apple.terminal "Default Window Settings" -string "Smyck"
 defaults write com.apple.terminal "Startup Window Settings" -string "Smyck"

@@ -29,8 +29,8 @@ fish -c "set -Ux PYENV_ROOT $HOME/.pyenv"
 fish -c "set -Ux fish_user_paths $PYENV_ROOT/bin $fish_user_paths"
 
 # Install dotfiles
-stow -t ~ fish
-stow -t ~ git
-stow -t ~ vim
-stow -t ~ i3
-stow -t ~ ack
+stow -t ~ ../common/ack
+stow -t ~ ../common/fish
+stow -t ~ ../common/git
+stow -t ~ ../common/i3
+stow -t ~ ../common/vim
