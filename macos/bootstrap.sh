@@ -29,13 +29,6 @@ pip3 install pylint
 # Install virtualenv
 pip3 install virtualenv || sudo pip3 install virtualenv
 
-# Install dotfiles
-stow -t ~ ../common/ack
-stow -t ~ ../common/bash
-stow -t ~ ../common/fish
-stow -t ~ ../common/git
-stow -t ~ ../common/vim
-
 # Terminal.app can't be easily configured with `stow`
 open Smyck.terminal
 sleep 1
@@ -51,3 +44,10 @@ defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
 sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 
+# Install dotfiles
+cd "$(git rev-parse --show-toplevel)/common"
+stow -t ~ ack
+stow -t ~ bash
+stow -t ~ fish
+stow -t ~ git
+stow -t ~ vim
