@@ -1,0 +1,4 @@
+fish/.config/fish/*.fish.backup
+fish/.config/fish/fish_variables
+vim/.vim/.netrwhist
+vim/.vim/swap/
