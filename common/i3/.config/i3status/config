@@ -7,38 +7,30 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
         interval = 5
+        # solarized dark
+        colors = true
         color_good = "#859900"
         color_bad = "#dc322f"
+        color_degraded = "#b58900"
 }
 
 order += "wireless _first_"
 order += "ethernet _first_"
-order += "battery all"
 order += "load"
+order += "memory"
+order += "disk /"
 order += "volume master"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = "%essid %quality"
-        format_down = "W"
+        format_up = "W: %essid %quality"
+        format_down = ""
 }
 
 ethernet _first_ {
-        format_up = "E"
-        format_down = "E"
-}
-
-battery all {
-        format = "%percentage%status"
-        status_bat = ""
-        status_unk = "?"
-        status_chr = "+"
-        status_full = ""
-        low_threshold = "20"
-        threshold_type = "percentage"
-        integer_battery_capacity = true
+        format_up = "%ip"
+        format_down = "E: down"
 }
 
 tztime local {
@@ -46,15 +38,21 @@ tztime local {
 }
 
 load {
-        format = "%1min"
+        format = "P %1min"
 }
 
 disk "/" {
-        format = "%avail"
+        format = "/ %percentage_used"
+}
+
+memory {
+        format = "M %percentage_used"
+        threshold_degraded = "20%"
+        threshold_critical = "10%"
 }
 
 volume master {
         format = "♪ %volume"
         format_muted = "♪ muted (%volume)"
-        device = "pulse:0"
+        device = "default"
 }
