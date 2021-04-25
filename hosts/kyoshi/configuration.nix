@@ -3,6 +3,7 @@
 let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
+  networking.hostId = "195126d9";
   networking.hostName = "kyoshi";
 
   ## Boot
@@ -25,6 +26,8 @@ in {
   # We have enough memory and short-enough uptimes that writing /tmp to
   # RAM is not a problem
   boot.tmpOnTmpfs = true;
+
+  boot.supportedFilesystems = [ "zfs" ];
 
 
   ## Hardware
