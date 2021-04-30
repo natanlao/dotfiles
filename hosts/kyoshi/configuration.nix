@@ -117,6 +117,9 @@ in {
   services.syncthing = {
     enable = true;
     configDir = "/home/natan/.config/syncthing";
+    group = "natan";
+    openDefaultPorts = true;
+    user = "natan";
   };
 
   # TODO: NixOS/nixpkgs#119984
