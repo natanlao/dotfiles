@@ -94,9 +94,13 @@ in {
   environment.systemPackages = with pkgs; [
     alacritty
     bc
-    clawsMail
+    feh
     gotop
     jq
+    mupdf
+    thunderbird
+    tree
+    vlc
     xclip
     zfs
 
