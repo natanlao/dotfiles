@@ -77,6 +77,10 @@ in {
 
       desktopManager.xterm.enable = false;
 
+      displayManager.autoLogin = {
+        enable = true;
+        user = "natan";
+      };
       displayManager.defaultSession = "none+i3";
 
       windowManager.i3 = {
