@@ -121,7 +121,7 @@ in {
   services.syncthing = {
     enable = true;
     configDir = "/home/natan/.config/syncthing";
-    group = "natan";
+    group = "users";
     openDefaultPorts = true;
     user = "natan";
   };
