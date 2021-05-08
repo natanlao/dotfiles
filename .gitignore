@@ -7,5 +7,4 @@ nixos
 # Stowed artifacts
 cfg/.config/fish/*.fish.backup
 cfg/.config/fish/fish_variables
-cfg/.vim/.netrwhist
 cfg/.vim/swap/

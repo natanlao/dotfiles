@@ -6,6 +6,8 @@ colorscheme desert
 set nocompatible
 " Disable viminfo
 set viminfofile=NONE
+" Disable netrwhist
+let g:netrw_dirhistmax=0
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 " Enhance command-line completion
