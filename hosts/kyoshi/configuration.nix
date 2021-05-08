@@ -93,10 +93,11 @@ in {
 
       windowManager.i3 = {
         enable = true;
-        extraPackages = with pkgs; [dmenu i3status i3lock-color dunst xss-lock pa_applet];
+        extraPackages = with pkgs; [dmenu i3status dunst xss-lock pa_applet];
      };
     };
   };
+  programs.slock.enable = true;
 
 
   ## Package management
