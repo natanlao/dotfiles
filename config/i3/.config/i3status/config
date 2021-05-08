@@ -39,6 +39,8 @@ tztime local {
 
 load {
         format = "P %1min"
+        max_threshold = "12"
+        format_above_threshold = "P %1min %5min %15min"
 }
 
 disk "/" {

@@ -84,9 +84,6 @@ in {
       enable = true;
       autorun = true;
       videoDrivers = [ "nvidiaLegacy390" ];
-      # dpi = 100;
-
-      desktopManager.xterm.enable = false;
 
       displayManager.autoLogin = {
         enable = true;
@@ -96,7 +93,7 @@ in {
 
       windowManager.i3 = {
         enable = true;
-        extraPackages = with pkgs; [dmenu i3status i3lock dunst xss-lock pa_applet];
+        extraPackages = with pkgs; [dmenu i3status i3lock-color dunst xss-lock pa_applet];
      };
     };
   };
@@ -115,6 +112,7 @@ in {
     mupdf
     thunderbird
     tree
+    udiskie
     vlc
     xclip
     zfs
@@ -158,7 +156,6 @@ in {
       night = 3700;
     };
   };
-
 
   system.stateVersion = "20.09";
 }

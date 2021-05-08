@@ -6,7 +6,7 @@ passwordIncorrect=d23c3dff
 background=00000000
 foreground=fdf6e3ff
 
-i3lock \
+i3lock-color \
     -t -e \
     -i "$1" \
     --timepos="40:h-70" \
