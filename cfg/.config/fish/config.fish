@@ -4,7 +4,7 @@ alias f "feh --auto-zoom --scale-down --draw-filename --draw-tinted"
 
 alias g "git"
 
-if ! type -q pbcopy and ! type -q pbpaste
+if ! which pbcopy pbpaste > /dev/null 2>&1
     alias pbcopy "xclip -selection clipboard"
     alias pbpaste "xclip -selection clipboard -o"
 end
