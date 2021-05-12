@@ -51,8 +51,8 @@ in {
 
 
   networking.useDHCP = false;
+  networking.enableIPv6 = false;  # it's my ISP, i swear
   networking.interfaces.enp4s0.useDHCP = true;
-  networking.interfaces.wlp5s0.useDHCP = false;
   # https://github.com/NixOS/nixpkgs/issues/60900
   networking.dhcpcd.enable = false;
   systemd.network.enable = true;
