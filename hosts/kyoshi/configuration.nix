@@ -79,11 +79,11 @@ in {
 
   # xserver
 
+  hardware.nvidia.package = "nvidiaLegacy390";
   services = {
     xserver = {
       enable = true;
       autorun = true;
-      videoDrivers = [ "nvidiaLegacy390" ];
 
       displayManager.autoLogin = {
         enable = true;
