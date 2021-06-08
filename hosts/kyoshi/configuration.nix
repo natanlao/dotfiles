@@ -124,11 +124,9 @@ in {
     unstable.minecraft
     unstable.spotify
     unstable.standardnotes
-    # TODO: steam broken on unstable
-    # unstable.steam
+    unstable.steam
     unstable.syncthing
   ];
-  programs.steam.enable = true;
 
   hardware.opengl.driSupport32Bit = true;
 
