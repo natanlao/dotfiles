@@ -1,3 +1,2 @@
 #env
-LESS = -i -R
 LESSHISTFILE = /dev/null
