@@ -78,12 +78,12 @@ in {
 
 
   # xserver
-
-  hardware.nvidia.package = "nvidiaLegacy390";
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
   services = {
     xserver = {
       enable = true;
       autorun = true;
+      videoDrivers = [ "nvidia" ];
 
       displayManager.autoLogin = {
         enable = true;
