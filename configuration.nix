@@ -17,6 +17,12 @@
   nix.autoOptimiseStore = true;
 
 
+  ## Security
+
+  security.sudo.execWheelOnly = true;
+  nix.allowedUsers = [ "@wheel" ];
+
+
   ## Locale
 
   i18n.defaultLocale = "en_US.UTF-8";
