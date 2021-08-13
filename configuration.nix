@@ -58,12 +58,14 @@
 
   ## Package management
 
+  environment.defaultPackages = lib.mkForce [];
   environment.systemPackages = with pkgs; [
     ack
     curl
     fish
     git
     htop
+    perl
     stow
     tmux
     unzip
