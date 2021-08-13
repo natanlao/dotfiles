@@ -1,6 +1,6 @@
 " Derived from https://github.com/mathiasbynens/dotfiles
 set background=dark
-colorscheme desert
+colorscheme solarized
 
 " Make Vim more useful
 set nocompatible
