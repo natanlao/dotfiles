@@ -53,7 +53,7 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 echo "Configuring scrolling and trackpad..."
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
 defaults write -g com.apple.mouse.scaling 2
-defaults write -g com.apple.trackpad.scaling 3.5
+defaults write -g com.apple.trackpad.scaling 1
 echo "Disabling spell check..."
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
