@@ -60,8 +60,9 @@ defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 echo "Enabling firewall..."
 sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 
-# Install dotfiles
+echo "Installing dotfiles..."
+stow -t ~ cfg  # hosts/macos/cfg/
 cd "$(git rev-parse --show-toplevel)"
-stow -t ~ cfg
+stow -t ~ cfg  # cfg/
 
 echo "Don't forget to remap Caps Lock to Escape."
