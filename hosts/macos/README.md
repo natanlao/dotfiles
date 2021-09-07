@@ -1,0 +1,1 @@
+Solarized Dark theme from [tomislav/osx-terminal.app-colors-solarized](https://github.com/tomislav/osx-terminal.app-colors-solarized)
