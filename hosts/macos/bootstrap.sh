@@ -14,6 +14,8 @@ brew install \
     git \
     git \
     google-chrome \
+    httpie \
+    jq \
     lastpass \
     pycharm \
     pyenv \
@@ -21,11 +23,16 @@ brew install \
     rsync \
     slack \
     spectacle \
+    stoken \
     stow \
     sublime-text \
+    terraform \
     tmux \
+    tree \
     vim \
-    wget
+    webex \
+    wget \
+    wireguard-tools
 
 # brew tap homebrew/cask-fonts
 # brew install homebrew/cask-fonts/font-source-code-pro
@@ -52,7 +59,7 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 echo "Configuring scrolling and trackpad..."
 defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
-defaults write -g com.apple.mouse.scaling 2
+defaults write -g com.apple.mouse.scaling -1
 defaults write -g com.apple.trackpad.scaling 1
 echo "Disabling spell check..."
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
