@@ -42,14 +42,6 @@ echo "Set fish as default shell..."
 grep "`which fish`" /etc/shells || sudo sh -c 'echo "`which fish`" >> /etc/shells'
 chsh -s `which fish`
 
-# Perform a little more setup for Sublime Text
-# Do this before installing dotfiles so that Sublime config is properly installed
-# subl # open sublime text
-# Install package control
-# wget https://packagecontrol.io/Package%20Control.sublime-package -P ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages/
-# pip3 install pylint
-
-
 echo "Configuring Terminal.app..."
 open Solarized\ Dark.terminal
 sleep 1
@@ -57,11 +49,11 @@ defaults write com.apple.terminal "Default Window Settings" -string "Solarized D
 defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Dark"
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
-echo "Configuring scrolling and trackpad..."
-defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+echo "Configuring scrolling, trackpad, and keyboard..."
+defaults write -g com.apple.swipescrolldirection -bool false
 defaults write -g com.apple.mouse.scaling -1
 defaults write -g com.apple.trackpad.scaling 1
-echo "Disabling spell check..."
+defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
 echo "Enabling firewall..."

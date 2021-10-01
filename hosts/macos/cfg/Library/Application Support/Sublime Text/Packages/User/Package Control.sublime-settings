@@ -1,0 +1,15 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Anaconda",
+		"Emmet",
+		"Package Control",
+		"Solarized Color Scheme",
+		"SublimeLinter",
+		"Terraform",
+	],
+}
