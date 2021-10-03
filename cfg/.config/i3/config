@@ -9,6 +9,10 @@ set $dunst Control
 # set font
 font pango:monospace 9
 
+# power saving mode is kind of borked on my machine and i'm good about
+# turning it off anyway
+exec --no-startup-id nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'
+
 # locking
 exec --no-startup-id xss-lock --transfer-sleep-lock -- slock
 bindsym --release ctrl+Mod1+q exec loginctl lock-session
