@@ -103,29 +103,27 @@ in {
   ## Package management
 
   nixpkgs.config.allowUnfree = true;
-  environment.variables.TERMINAL = "alacritty";  # i3-sensible-terminal
+  environment.variables.TERMINAL = "alacritty";
   environment.systemPackages = with pkgs; [
-    alacritty
-    bc
-    feh
-    gotop
-    jq
-    mupdf
-    thunderbird
-    tree
-    udiskie
-    vlc
-    xclip
-    zfs
-
+    unstable.alacritty
     unstable.discord
+    unstable.feh
     unstable.firefox
+    unstable.gotop
+    unstable.jq
     unstable.keepassxc
     unstable.minecraft
+    unstable.mupdf
     unstable.spotify
     unstable.standardnotes
     unstable.steam
     unstable.syncthing
+    unstable.thunderbird
+    unstable.tree
+    unstable.udiskie
+    unstable.vlc
+    unstable.xclip
+    unstable.zfs
   ];
 
   hardware.opengl.driSupport32Bit = true;
