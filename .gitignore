@@ -4,6 +4,8 @@ host
 # Old NixOS config
 nixos
 
+cfg/.config/fish/*.local.fish
+
 # Stowed artifacts
 cfg/.config/fish/*.fish.backup
 cfg/.config/fish/fish_variables

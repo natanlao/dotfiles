@@ -20,3 +20,7 @@ function venv
         python3 -m venv venv
     end
 end
+
+if test -f ~/.config/fish/config.local.fish
+    source ~/.config/fish/config.local.fish
+end
