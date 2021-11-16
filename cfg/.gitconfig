@@ -85,7 +85,7 @@
 [help]
 
 	# Automatically correct and execute mistyped commands
-	autocorrect = 1
+	autocorrect = prompt
 
 [merge]
 
@@ -100,3 +100,9 @@
 
 [init]
 	defaultBranch = develop
+[http]
+	proxy = http://lcpzen.fpl.com:10262
+	emptyAuth = true
+[https]
+	proxy = http://lcpzen.fpl.com:10262
+	emptyAuth = true
