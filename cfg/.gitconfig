@@ -106,3 +106,9 @@
 [https]
 	proxy = http://lcpzen.fpl.com:10262
 	emptyAuth = true
+[stash]
+	showPatch = true
+[rebase]
+	autoSquash = true
+[pull]
+	ff = only
