@@ -107,6 +107,7 @@ in {
   environment.systemPackages = with pkgs; [
     unstable.alacritty
     unstable.discord
+    unstable.docker
     unstable.feh
     unstable.firefox
     unstable.gotop
@@ -125,7 +126,7 @@ in {
     unstable.xclip
     unstable.zfs
   ];
-
+  virtualisation.docker.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
   services.syncthing = {

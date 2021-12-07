@@ -36,7 +36,7 @@
   environment.variables.EDITOR = "vim";
   programs.fish.enable = true;
   users.users.natan = {
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     isNormalUser = true;
     shell = pkgs.fish;
   };
