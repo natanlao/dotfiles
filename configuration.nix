@@ -69,7 +69,15 @@
     stow
     tmux
     unzip
-    (if config.services.xserver.enable then vim_configurable else vim)
+    (if config.services.xserver.enable then (vim_configurable.customize{
+      name = "vim";
+      vimrcConfig.customRC = "source ~/.vimrc";
+      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+        start = [ vim-fish vim-nix vim-ledger vim-terraform ];
+        opt = [];
+      };
+    }) else vim)
     wget
   ];
+
 }
