@@ -68,5 +68,11 @@ function fish_prompt --description 'Write out the prompt'
         set prompt_whoami (set_color $fish_color_user) "$USER" "$normal" '@' (set_color $fish_color_host) (prompt_hostname) "$normal" ' '
     end
 
-    echo -n -s $prompt_whoami (set_color $color_cwd) (prompt_pwd) $normal (string trim -r (__fish_git_prompt " ")) $normal $prompt_status $suffix " "
+    set -l nix_shell (
+        if test -n "$IN_NIX_SHELL"
+            echo -n "λ "
+        end
+    )
+
+    echo -n -s $nix_shell $prompt_whoami (set_color $color_cwd) (prompt_pwd) $normal (string trim -r (__fish_git_prompt " ")) $normal $prompt_status $suffix " "
 end
