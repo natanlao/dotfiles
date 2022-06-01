@@ -5,3 +5,4 @@
 --ignore-dir=.mypy_cache/
 --ignore-dir=__pycache__/
 --ignore-dir=.venv/
+--ignore-dir=node_modules/
