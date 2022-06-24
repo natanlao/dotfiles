@@ -12,25 +12,21 @@ brew install \
     firefox \
     fish \
     git \
-    git \
     google-chrome \
     httpie \
     jq \
-    lastpass \
     pycharm \
     pyenv \
     qlstephen \
     rsync \
     slack \
     spectacle \
-    stoken \
     stow \
     sublime-text \
     terraform \
     tmux \
     tree \
     vim \
-    webex \
     wget \
     wireguard-tools
 
