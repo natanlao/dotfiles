@@ -15,6 +15,8 @@
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
 
+	dc = d --cached
+
 [apply]
 
 	# Detect whitespace errors when applying a patch
@@ -88,6 +90,8 @@
 	autocorrect = prompt
 
 [merge]
+
+	conflictstyle = diff3
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
