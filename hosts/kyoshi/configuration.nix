@@ -110,6 +110,7 @@ in {
     unstable.docker
     unstable.feh
     unstable.firefox
+    unstable.gocryptfs
     unstable.gotop
     unstable.jq
     unstable.keepassxc
@@ -127,6 +128,7 @@ in {
     unstable.zfs
   ];
   virtualisation.docker.enable = true;
+  virtualisation.docker.rootless.enable = true;
   hardware.opengl.driSupport32Bit = true;
 
   services.syncthing = {

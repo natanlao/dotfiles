@@ -11,7 +11,7 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = false;
-    channel = "https://nixos.org/channels/nixos-21.11";
+    channel = "https://nixos.org/channels/nixos-22.05";
   };
   nix.gc.automatic = true;
   nix.autoOptimiseStore = true;
