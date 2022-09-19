@@ -21,8 +21,8 @@ function fish_prompt --description 'Write out the prompt'
 
     set -l user_status (
         if set -q SSH_CLIENT; or set -q SSH_TTY
-            echo -n (set_color $fish_color_user) "$USER" (set_color normal) '@'
-            echo -n (set_color $fish_color_host) (prompt_hostname) (set_color normal)
+            echo -n (set_color $fish_color_user)"$USER"(set_color normal)'@'
+            echo -n (set_color $fish_color_host)(prompt_hostname)' '(set_color normal)
         end
     )
     set -l prompt_who (set_color normal) $user_status (set_color normal)
