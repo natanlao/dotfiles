@@ -71,8 +71,8 @@
           force_https = true;
         };
         dns = {
-          bind_host = "127.0.0.1";  # deprecated but fails without this for whatever reasopn
-          bind_hosts = ["127.0.0.1"];
+          bind_host = "0.0.0.0";  # deprecated but fails without this for whatever reasopn
+          bind_hosts = ["0.0.0.0"];
           bootstrap_dns = ["192.168.1.1"];
           cache_optimistic = true;
           upstream_dns = [
