@@ -163,7 +163,7 @@
   users.mutableUsers = false;
   users.users.natan = {
     extraGroups = [ "wheel" ];
-    hashedPassword = "$6$WDsCSXmcwPn4QmUM$k4BRv/mck71rEOM1oKsdPXrYzhGsJBhq5ImDul5r8JNnmlNJueOKN7bbQ.lLqs7h3UKUnyT8BVOOz31V3.1wH/"
+    hashedPassword = "$6$WDsCSXmcwPn4QmUM$k4BRv/mck71rEOM1oKsdPXrYzhGsJBhq5ImDul5r8JNnmlNJueOKN7bbQ.lLqs7h3UKUnyT8BVOOz31V3.1wH/";
     home = "/home/natan";
     isNormalUser = true;
     openssh.authorizedKeys.keys = [
