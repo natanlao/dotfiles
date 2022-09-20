@@ -134,6 +134,10 @@
           { name = "malicious-12"; enabled = true; url = "https://v.firebog.net/hosts/Shalla-mal.txt"; }
           { name = "coins-0"; enabled = true; url = "https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser"; }
         ];
+        os = {
+          group = "adguard";
+          user = "adguard";
+        };
       };
 
     };
@@ -170,6 +174,13 @@
   };
 
   users.mutableUsers = false;
+  users.groups.adguard = { };
+  users.users."adguard" = {
+    group = "adguard";
+    description = "AdGuard Home";
+    createHome = false;
+    isSystemUser = true;
+  };
   users.users.natan = {
     extraGroups = [ "wheel" ];
     hashedPassword = "$6$WDsCSXmcwPn4QmUM$k4BRv/mck71rEOM1oKsdPXrYzhGsJBhq5ImDul5r8JNnmlNJueOKN7bbQ.lLqs7h3UKUnyT8BVOOz31V3.1wH/";
