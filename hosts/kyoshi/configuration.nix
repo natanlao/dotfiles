@@ -3,31 +3,36 @@
 let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
-  networking.hostId = "195126d9";
-  networking.hostName = "kyoshi";
+  networking = {
+    hostId = "195126d9";
+    hostName = "kyoshi";
+  };
 
   ## Boot
 
-  boot.loader = {
-    timeout = 1;
-    # systemd-boot.enable = true;
-    efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      enableCryptodisk = true;
-      extraConfig = "set timeout_style=hidden";
-      splashImage = null;
-      version = 2;
+  boot = {
+    loader = {
+      timeout = 1;
+      # systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      grub = {
+        enable = true;
+        device = "nodev";
+        efiSupport = true;
+        enableCryptodisk = true;
+        extraConfig = "set timeout_style=hidden";
+        splashImage = null;
+        version = 2;
+      };
     };
+    supportedFilesystems = [ "zfs" ];
+
+    # We have enough memory and short-enough uptimes that writing /tmp to
+    # RAM is not a problem
+    tmpOnTmpfs = true;
+
   };
 
-  # We have enough memory and short-enough uptimes that writing /tmp to
-  # RAM is not a problem
-  boot.tmpOnTmpfs = true;
-
-  boot.supportedFilesystems = [ "zfs" ];
 
 
   ## Hardware
