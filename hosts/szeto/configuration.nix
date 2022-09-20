@@ -160,6 +160,15 @@
 
   sound.enable = false;
 
+  system.autoUpgrade = {
+    enable = true;
+    dates = "05:00";
+    rebootWindow = {
+      lower = "06:00";
+      upper = "07:00";
+    };
+  };
+
   users.mutableUsers = false;
   users.users.natan = {
     extraGroups = [ "wheel" ];

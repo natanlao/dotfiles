@@ -10,7 +10,7 @@
 
   system.autoUpgrade = {
     enable = true;
-    allowReboot = false;
+    allowReboot = lib.mkDefault false;
     channel = "https://nixos.org/channels/nixos-22.05";
   };
   nix.gc.automatic = true;
