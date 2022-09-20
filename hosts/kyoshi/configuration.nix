@@ -114,8 +114,8 @@ in {
     unstable.gotop
     unstable.jq
     unstable.keepassxc
-    unstable.minecraft
     unstable.mupdf
+    unstable.polymc
     unstable.spotify
     unstable.standardnotes
     unstable.steam
