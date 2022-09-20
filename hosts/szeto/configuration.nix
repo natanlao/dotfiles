@@ -30,6 +30,12 @@
     #     gpu_mem=256
     #   '';
     # };
+    # Save power by disabling radios, HDMI
+    loader.raspberryPi.firmwareConfig = ''
+      hdmi_blanking=2
+      dtoverlay=disable-wifi
+      dtoverlay=disable-bt
+    '';
   };
 
   environment.systemPackages = with pkgs; [
