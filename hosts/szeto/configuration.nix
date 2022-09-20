@@ -55,6 +55,9 @@
 
   boot.tmpOnTmpfs = true;  # minimize writing to SD card
 
+  networking.firewall.allowedTCPPorts = [ 53 ];
+  networking.firewall.allowedUDPPorts = [ 53 ];
+
   nixpkgs.config.allowUnfree = true;  # needed for unifi controller
 
   services = {
@@ -66,15 +69,15 @@
       settings = {
         bind_host = "0.0.0.0";
         bind_port = "8215";
-        tls = {
-          enabled = true;
-          force_https = true;
-        };
         dns = {
+          anonymize_client_ip = true;
           bind_host = "0.0.0.0";  # deprecated but fails without this for whatever reasopn
           bind_hosts = ["0.0.0.0"];
           bootstrap_dns = ["192.168.1.1"];
           cache_optimistic = true;
+          querylog_enabled = false;
+          querylog_file_enabled = false;
+          querylog_interval = 1;
           upstream_dns = [
             # Quad9 with ECS
             "https://dns11.quad9.net/dns-query"
@@ -137,6 +140,10 @@
         os = {
           group = "adguard";
           user = "adguard";
+        };
+        tls = {
+          enabled = true;
+          force_https = true;
         };
       };
 
