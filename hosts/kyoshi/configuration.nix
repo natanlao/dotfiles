@@ -55,23 +55,6 @@ in {
   };
 
 
-  networking.useDHCP = false;
-  networking.enableIPv6 = false;  # it's my ISP, i swear
-  networking.interfaces.enp4s0.useDHCP = true;
-  # https://github.com/NixOS/nixpkgs/issues/60900
-  networking.dhcpcd.enable = false;
-  systemd.network.enable = true;
-  systemd.network.networks = {
-    internet0 = {
-      matchConfig = {
-        Name = "enp4s0";
-      };
-      networkConfig = {
-        DHCP = "ipv4";
-      };
-    };
-  };
-
   # Enable pulseaudio
   sound.enable = true;
   hardware.pulseaudio.enable = true;
@@ -116,7 +99,6 @@ in {
     unstable.feh
     unstable.firefox
     unstable.gocryptfs
-    unstable.gotop
     unstable.jq
     unstable.keepassxc
     unstable.mupdf
