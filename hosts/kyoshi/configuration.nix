@@ -96,14 +96,19 @@ in {
     unstable.alacritty
     unstable.discord
     unstable.docker
+    unstable.entr
     unstable.feh
     unstable.firefox
+    unstable.gnumake
     unstable.gocryptfs
     unstable.jq
     unstable.keepassxc
+    unstable.libreoffice
     unstable.mupdf
     unstable.polymc
+    unstable.python3
     unstable.spotify
+    unstable.sqlite
     unstable.standardnotes
     unstable.steam
     unstable.syncthing
@@ -117,6 +122,7 @@ in {
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless.enable = true;
   hardware.opengl.driSupport32Bit = true;
+  hardware.keyboard.zsa.enable = true;
 
   services.syncthing = {
     enable = true;
