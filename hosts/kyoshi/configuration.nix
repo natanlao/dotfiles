@@ -105,7 +105,7 @@ in {
     unstable.keepassxc
     unstable.libreoffice
     unstable.mupdf
-    unstable.polymc
+    unstable.prismlauncher
     unstable.python3
     unstable.spotify
     unstable.sqlite

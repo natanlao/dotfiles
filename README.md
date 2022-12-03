@@ -55,7 +55,7 @@ generally looks like this.
 3. Activate the right host:
 
        cd /etc/nixos
-       ln -s host hosts/$(hostname)
+       ln -s hosts/$(hostname) host
 
 4.     sudo nixos-rebuild switch
 

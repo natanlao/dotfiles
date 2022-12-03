@@ -14,13 +14,13 @@
     channel = "https://nixos.org/channels/nixos-22.05";
   };
   nix.gc.automatic = true;
-  nix.autoOptimiseStore = true;
+  nix.settings.auto-optimise-store = true;
 
 
   ## Security
 
   security.sudo.execWheelOnly = true;
-  nix.allowedUsers = [ "@wheel" ];
+  nix.settings.allowed-users = [ "@wheel" ];
 
 
   ## Locale
