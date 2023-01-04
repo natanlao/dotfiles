@@ -123,6 +123,7 @@ in {
   virtualisation.docker.rootless.enable = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.keyboard.zsa.enable = true;
+  services.udisks2.enable = true;
 
   services.syncthing = {
     enable = true;
