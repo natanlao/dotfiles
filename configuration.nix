@@ -14,6 +14,7 @@
     channel = "https://nixos.org/channels/nixos-22.05";
   };
   nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 10d";
   nix.settings.auto-optimise-store = true;
 
 

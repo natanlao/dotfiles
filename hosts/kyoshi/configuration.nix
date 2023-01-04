@@ -17,6 +17,7 @@ in {
       efi.canTouchEfiVariables = true;
       grub = {
         enable = true;
+        configurationLimit = 35;
         device = "nodev";
         efiSupport = true;
         enableCryptodisk = true;
