@@ -49,13 +49,12 @@
   networking.firewall.enable = true;
   networking.wireless.enable = false;
   networking.wireless.userControlled.enable = false;
-
+  networking.nameservers = lib.mkDefault ["9.9.9.9" "149.112.112.112"];
 
   ## Banish caps lock everywhere
 
   console.useXkbConfig = true;
   services.xserver.xkbOptions = "caps:escape";
-
 
   ## Package management
 
