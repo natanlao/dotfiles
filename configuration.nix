@@ -11,7 +11,7 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = lib.mkDefault false;
-    channel = "https://nixos.org/channels/nixos-22.05";
+    channel = "https://nixos.org/channels/nixos-22.11";
   };
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 10d";
