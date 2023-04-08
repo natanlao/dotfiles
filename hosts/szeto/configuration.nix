@@ -44,7 +44,6 @@
 
   # Preserve space by sacrificing documentation and history
   documentation.nixos.enable = false;
-  nix.gc.options = "--delete-older-than 14d";
   boot.cleanTmpDir = true;
 
   # Use 1GB of additional swap memory in order to not run out of memory
@@ -71,19 +70,15 @@
       enable = true;
       mutableSettings = false;
       openFirewall = true;
-      port = 8215;
       settings = {
         bind_host = "0.0.0.0";
-        bind_port = "8215";
+        bind_port = 8215;
         dns = {
           anonymize_client_ip = true;
           bind_host = "0.0.0.0";  # deprecated but fails without this for whatever reasopn
           bind_hosts = ["0.0.0.0"];
           bootstrap_dns = ["192.168.1.1"];
           cache_optimistic = true;
-          querylog_enabled = false;
-          querylog_file_enabled = false;
-          querylog_interval = 1;
           upstream_dns = [
             # Quad9 with ECS
             "https://dns11.quad9.net/dns-query"
@@ -95,6 +90,11 @@
             "https://doh.mullvad.net/dns-query"
             "tls:doh.mullvad.net:853"
           ];
+        };
+        querylog = {
+          enabled = false;
+          file_enabled = false;
+          interval = "1h";
         };
         filters = [
           { name = "suspicious-0"; enabled = true; url = "https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt"; }
