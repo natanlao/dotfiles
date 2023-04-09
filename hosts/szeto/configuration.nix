@@ -8,7 +8,7 @@
     <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64-installer.nix>
   ];
 
-  # sdImage.compressImage = true;
+  sdImage.compressImage = false;
   sdImage.firmwareSize = 1024;
 
   # OpenSSH is forced to have an empty `wantedBy` on the installer system[1],
