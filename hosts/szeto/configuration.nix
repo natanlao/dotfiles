@@ -71,8 +71,6 @@
       mutableSettings = false;
       openFirewall = true;
       settings = {
-        bind_host = "0.0.0.0";
-        bind_port = 8215;
         dns = {
           anonymize_client_ip = true;
           bind_host = "0.0.0.0";  # deprecated but fails without this for whatever reasopn
