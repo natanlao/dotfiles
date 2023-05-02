@@ -141,6 +141,7 @@
           { name = "malicious-12"; enabled = true; url = "https://v.firebog.net/hosts/Shalla-mal.txt"; }
           { name = "coins-0"; enabled = true; url = "https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser"; }
         ];
+        user_rules = [ "@@||t.co^$important" ];
         os = {
           group = "adguard";
           user = "adguard";
