@@ -94,31 +94,31 @@ in {
   nixpkgs.config.allowUnfree = true;
   environment.variables.TERMINAL = "alacritty";
   environment.systemPackages = with pkgs; [
-    unstable.alacritty
+    alacritty
+    entr
+    feh
+    firefox
+    gnumake
+    gocryptfs
+    jq
+    libreoffice
+    mupdf
+    python3
+    sqlite
+    tree
+    udiskie
     unstable.discord
     unstable.docker
-    unstable.entr
-    unstable.feh
-    unstable.firefox
-    unstable.gnumake
-    unstable.gocryptfs
-    unstable.jq
-    unstable.keepassxc
-    unstable.libreoffice
-    unstable.mupdf
+    keepassxc
     unstable.prismlauncher
-    unstable.python3
     unstable.spotify
-    unstable.sqlite
     unstable.standardnotes
     unstable.steam
     unstable.syncthing
     unstable.thunderbird
-    unstable.tree
-    unstable.udiskie
-    unstable.vlc
-    unstable.xclip
+    vlc
     unstable.zfs
+    xclip
   ];
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless.enable = true;
