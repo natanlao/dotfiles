@@ -60,7 +60,7 @@
 
   boot.tmpOnTmpfs = true;  # minimize writing to SD card
 
-  networking.firewall.allowedTCPPorts = [ 53 ];
+  networking.firewall.allowedTCPPorts = [ 53 8443 ];
   networking.firewall.allowedUDPPorts = [ 53 ];
 
   nixpkgs.config.allowUnfree = true;  # needed for unifi controller
@@ -168,7 +168,7 @@
     unifi = {
       enable = true;
       openFirewall = true;
-      unifiPackage = pkgs.unifiStable;
+      unifiPackage = pkgs.unifi7;
     };
 
     xserver.enable = false;
