@@ -72,11 +72,11 @@
             "https://doh.mullvad.net/dns-query"
             "tls:doh.mullvad.net:853"
           ];
+          querylog_enabled = false;
         };
         querylog = {
           enabled = false;
           file_enabled = false;
-          interval = "1h";
         };
         filters = [
           { name = "suspicious-0"; enabled = true; url = "https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt"; }
@@ -125,11 +125,14 @@
           { name = "malicious-12"; enabled = true; url = "https://v.firebog.net/hosts/Shalla-mal.txt"; }
           { name = "coins-0"; enabled = true; url = "https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser"; }
         ];
-        user_rules = [ "@@||t.co^$important" ];
-        os = {
-          group = "adguard";
-          user = "adguard";
-        };
+        user_rules = [
+          "@@||t.co^$important"
+          "@@||ct.sendgrid.net^$important"
+        ];
+        # os = {
+        #   group = "adguard";
+        #   user = "adguard";
+        # };
         tls = {
           enabled = true;
           force_https = true;
