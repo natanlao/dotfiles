@@ -2,6 +2,15 @@
 
 # Bootstrapping NixOS
 
+*Aside* So, I did something wrong last time. It turns out that the NixOS
+configuration used to generate the image is _not_ the same as what you're
+supposed to use on the live system. Not sure why it was working before... in any
+case, the instructions below need to be updated to (1) figure out what needs to
+be present to generate the image and (2) how to separate that configuration from
+that which needs to be present on the installed system.
+
+---
+
 I followed [this tutorial][tutorial] to generate an image of NixOS on my PC to
 write to the Raspberry Pi SD card. NixOS could just be rebuilt on the Pi itself,
 but that's slow, so this is useful for quick iteration.

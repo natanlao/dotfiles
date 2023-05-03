@@ -1,41 +1,25 @@
 { config, pkgs, lib, ... }:
 
 {
-  ## Raspberry Pi-specific configuration
-  # Heavily adapted from Robertof/nixos-docker-sd-image-builder.git
-
-  imports = [
-    <nixpkgs/nixos/modules/installer/sd-card/sd-image-aarch64-installer.nix>
-  ];
-
-  sdImage.compressImage = false;
-  sdImage.firmwareSize = 1024;
-
-  # OpenSSH is forced to have an empty `wantedBy` on the installer system[1],
-  # this won't allow it to be automatically started. Override it with the
-  # normal value.
-  # https://github.com/NixOS/nixpkgs/blob/9e5aa25/nixos/modules/profiles/installation-device.nix#L76
-  systemd.services.sshd.wantedBy = lib.mkOverride 40 [ "multi-user.target" ];
-
   boot = {
-    # kernelPackages = pkgs.linuxPackages_rpi3;
-    # kernelParams = ["cma=256M"];
-    # I copied this from somewhere but it breaks on 22.05, as it results in
-    # more than one bootloader being installed.
-    # loader = {
-    #   raspberryPi.enable = true;
-    #   raspberryPi.version = 3;
-    #   raspberryPi.uboot.enable = false;
-    #   raspberryPi.firmwareConfig = ''
-    #     gpu_mem=256
-    #   '';
-    # };
-    # Save power by disabling radios, HDMI
-    loader.raspberryPi.firmwareConfig = ''
-      hdmi_blanking=2
-      dtoverlay=disable-wifi
-      dtoverlay=disable-bt
-    '';
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = ["cma=256M"];
+
+    loader = {
+      grub.enable = false;
+      raspberryPi = {
+        enable = true;
+        version = 3;
+        # Save power by disabling radios, HDMI
+        firmwareConfig = ''
+          hdmi_blanking=2
+          dtoverlay=disable-wifi
+          dtoverlay=disable-bt
+
+          gpu_mem=256
+        '';
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
