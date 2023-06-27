@@ -51,7 +51,9 @@ disk "/" {
 }
 
 cpu_temperature 0 {
-        format = "%degrees °C"
+        format = ""
+        format_above_threshold = "%degrees °C"
+        max_threshold= "90"
         path = "/sys/class/hwmon/hwmon1/temp1_input"
 }
 
