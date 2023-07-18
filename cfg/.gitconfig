@@ -17,6 +17,11 @@
 
 	dc = d --cached
 
+	co = checkout
+
+	prom = pull --rebase --autostash origin main
+	promm = pull --rebase --autostash origin master
+
 [apply]
 
 	# Detect whitespace errors when applying a patch
@@ -98,6 +103,7 @@
 
 [push]
 
+	autoSetupRemote = true
 	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
