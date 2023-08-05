@@ -92,23 +92,24 @@ in {
     mupdf
     python3
     sqlite
-    steam
+    standardnotes
+    thunderbird
     tree
     udiskie
     unstable.discord
-    unstable.docker
-    unstable.prismlauncher
     unstable.signal-desktop
     unstable.spotify
-    unstable.standardnotes
-    unstable.syncthing
-    unstable.thunderbird
-    unstable.zfs
     vlc
     xclip
   ];
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless.enable = true;
+  programs.steam.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.keyboard.zsa.enable = true;

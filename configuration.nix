@@ -62,12 +62,9 @@
   environment.systemPackages = with pkgs; [
     ack
     curl
-    fish
     git
     htop
-    perl
     stow
-    tmux
     unzip
     (if config.services.xserver.enable then (vim_configurable.customize{
       name = "vim";
