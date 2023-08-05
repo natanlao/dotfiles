@@ -4,6 +4,7 @@ let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
   networking = {
+    dhcpcd.wait = "background";  # boot faster!
     hostId = "195126d9";
     hostName = "kyoshi";
   };
