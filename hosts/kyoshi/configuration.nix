@@ -13,35 +13,23 @@ in {
   boot = {
     loader = {
       timeout = 1;
-      # systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-      grub = {
+      systemd-boot = {
         enable = true;
-        configurationLimit = 35;
-        device = "nodev";
-        efiSupport = true;
-        enableCryptodisk = true;
-        extraConfig = "set timeout_style=hidden";
-        splashImage = null;
-        version = 2;
+        configurationLimit = 30;
       };
+
+      efi.canTouchEfiVariables = true;
     };
     supportedFilesystems = [ "zfs" ];
 
     # We have enough memory and short-enough uptimes that writing /tmp to
     # RAM is not a problem
-    tmpOnTmpfs = true;
+    tmp.useTmpfs = true;
 
   };
 
-
-
   ## Hardware
 
-  # Using TRIM despite security implications for encrypted filesystems.
-  # I would prefer to use continuous TRIM (i.e., `discard=async`) but that
-  # requires kernel 5.6+, which I can't upgrade to currently with this GPU
-  # (at time of writing) so periodic TRIM it is.
   fileSystems."/".options = [ "noatime" ];
   boot.initrd.luks.devices = {
     tank = {
@@ -50,6 +38,7 @@ in {
       preLVM = true;
     };
   };
+  boot.initrd.kernelModules = [ "amdgpu" ];
   services.fstrim = {
     enable = true;
     interval = "weekly";
@@ -63,16 +52,13 @@ in {
 
   # CPU
   hardware.cpu.amd.updateMicrocode = true;
-  powerManagement.cpuFreqGovernor = "performance";
-
 
   # xserver
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
   services = {
     xserver = {
       enable = true;
       autorun = true;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "amdgpu" ];
 
       displayManager.autoLogin = {
         enable = true;
@@ -101,27 +87,29 @@ in {
     gnumake
     gocryptfs
     jq
+    keepassxc
     libreoffice
     mupdf
     python3
     sqlite
+    steam
     tree
     udiskie
     unstable.discord
     unstable.docker
-    keepassxc
     unstable.prismlauncher
+    unstable.signal-desktop
     unstable.spotify
     unstable.standardnotes
-    unstable.steam
     unstable.syncthing
     unstable.thunderbird
-    vlc
     unstable.zfs
+    vlc
     xclip
   ];
   virtualisation.docker.enable = true;
   virtualisation.docker.rootless.enable = true;
+  hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.keyboard.zsa.enable = true;
   services.udisks2.enable = true;
