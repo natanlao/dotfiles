@@ -8,50 +8,55 @@ in {
     hostName = "kyoshi";
   };
 
-  ## Boot
-
   boot = {
+    initrd = {
+      kernelModules = [ "amdgpu" ];
+      luks.devices = {
+        tank = {
+          allowDiscards = true;
+          device = "/dev/disk/by-uuid/900761b1-4830-487b-a73f-4f731df65612";
+          preLVM = true;
+        };
+      };
+    };
+
     loader = {
       timeout = 1;
       systemd-boot = {
         enable = true;
         configurationLimit = 30;
       };
-
       efi.canTouchEfiVariables = true;
     };
+
     supportedFilesystems = [ "zfs" ];
-
-    # We have enough memory and short-enough uptimes that writing /tmp to
-    # RAM is not a problem
     tmp.useTmpfs = true;
-
   };
-
-  ## Hardware
 
   fileSystems."/".options = [ "noatime" ];
-  boot.initrd.luks.devices = {
-    tank = {
-      allowDiscards = true;
-      device = "/dev/disk/by-uuid/900761b1-4830-487b-a73f-4f731df65612";
-      preLVM = true;
-    };
-  };
-  boot.initrd.kernelModules = [ "amdgpu" ];
   services.fstrim = {
     enable = true;
     interval = "weekly";
   };
 
 
-  # Enable pulseaudio
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true;  # TODO
 
-  # CPU
-  hardware.cpu.amd.updateMicrocode = true;
+  hardware = {
+    cpu.amd.updateMicrocode = true;
+
+    keyboard.zsa.enable = true;
+
+    opengl = {
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+
+    pulseaudio = {
+      enable = true;
+      support32Bit = true;
+    };
+  };
 
   # xserver
   services = {
@@ -110,9 +115,7 @@ in {
       setSocketVariable = true;
     };
   };
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.keyboard.zsa.enable = true;
+
   services.udisks2.enable = true;
 
   services.syncthing = {
