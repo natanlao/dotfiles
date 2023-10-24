@@ -8,13 +8,16 @@ echo "Install homebrew..."
 echo "Install packages..."
 brew install \
     ack \
+    awscli \
     entr \
+    displaylink \
     firefox \
     fish \
     git \
     google-chrome \
     httpie \
     jq \
+    macpass \
     pycharm \
     pyenv \
     qlstephen \
@@ -23,15 +26,12 @@ brew install \
     spectacle \
     stow \
     sublime-text \
+    syncthing \
     terraform \
     tmux \
     tree \
     vim \
-    wget \
-    wireguard-tools
-
-# brew tap homebrew/cask-fonts
-# brew install homebrew/cask-fonts/font-source-code-pro
+    wget
 
 # Set fish as default shell
 echo "Set fish as default shell..."
@@ -52,8 +52,8 @@ defaults write -g com.apple.trackpad.scaling 1
 defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
 defaults write -g NSAutomaticSpellingCorrectionEnabled -bool false
 
-echo "Enabling firewall..."
-sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+# echo "Enabling firewall..."
+# sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 
 echo "Installing dotfiles..."
 stow -t ~ cfg  # hosts/macos/cfg/
