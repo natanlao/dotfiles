@@ -21,6 +21,8 @@
 
 	prom = pull --rebase --autostash origin main
 	promm = pull --rebase --autostash origin master
+	pfwl = push --force-with-lease
+	yeet = !"git commit --all --fixup HEAD && git push --force-with-lease"
 
 [apply]
 
@@ -110,11 +112,22 @@
 
 [init]
 	defaultBranch = develop
+
 [stash]
 	showPatch = true
+
 [rebase]
 	autoSquash = true
+
+[delta]
+	navigate = true  # use n and N to move between diff sections
+	light = true
+	line-numbers = true
+
+[diff]
+	colorMoved = default
 [pull]
 	ff = only
+
 [commit]
 	verbose = true
