@@ -9,6 +9,7 @@ end
 
 if command -sq git
     alias g git
+    alias git-root "cd (git rev-parse --show-cdup)"
 end
 
 if command -sq terraform
