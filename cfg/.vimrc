@@ -1,5 +1,9 @@
 " Derived from https://github.com/mathiasbynens/dotfiles
-set background=dark
+if !empty($__VIM_COLOR_SCHEME)
+    set background=$__VIM_COLOR_SCHEME
+else
+    set background=dark
+endif
 colorscheme solarized
 
 " Make Vim more useful

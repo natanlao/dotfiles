@@ -16,9 +16,22 @@ if command -sq terraform
     alias tf terraform
 end
 
-if command -sq alacritty; and command -sq vim; and test -L ~/.config/alacritty/alacritty.yml
-    alias _lightmode "ln -sf ~/.config/alacritty/solarized-light.yml ~/.config/alacritty/alacritty.yml; and sed -i '/set background\=dark/c\set background=light' ~/.vimrc"
-    alias _darkmode "ln -sf ~/.config/alacritty/solarized-dark.yml ~/.config/alacritty/alacritty.yml; and sed -i '/set background\=light/c\set background\=dark' ~/.vimrc"
+function _lightmode
+    if command -sq alacritty
+        ln -sf ~/.config/alacritty/solarized-light.yml ~/.config/alacritty/alacritty.yml
+    end
+    if command -sq vim
+        set --universal __VIM_COLOR_SCHEME "light"
+    end
+end
+
+function _darkmode
+    if command -sq alacritty
+        ln -sf ~/.config/alacritty/solarized-dark.yml ~/.config/alacritty/alacritty.yml
+    end
+    if command -sq vim
+        set --universal __VIM_COLOR_SCHEME "dark"
+    end
 end
 
 if ! command -sq pbcopy; and ! command -sq pbpaste; and command -sq xclip
