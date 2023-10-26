@@ -70,7 +70,7 @@
       name = "vim";
       vimrcConfig.customRC = "source ~/.vimrc";
       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-fish vim-nix vim-ledger vim-terraform ];
+        start = [ vim-fish vim-nix vim-terraform ];
         opt = [];
       };
     }) else vim)

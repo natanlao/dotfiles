@@ -108,8 +108,6 @@ if has("autocmd")
     " Show real tabs in *.go files
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab
     autocmd BufNewFile,BufRead cpanfile setlocal filetype=perl
-    " Ledger hotkeys
-    autocmd BufNewFile,BufRead *.journal noremap <C-K> :call ledger#transaction_state_toggle(line('.'), '*!')<CR>
 endif
 
 " Auto indent
