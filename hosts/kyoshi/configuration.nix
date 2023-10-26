@@ -89,7 +89,6 @@ in {
     alacritty
     entr
     feh
-    firefox
     gnumake
     gocryptfs
     jq
@@ -108,6 +107,17 @@ in {
     vlc
     xclip
   ];
+  programs.firefox = {
+    enable = true;
+    preferences = {
+      "extensions.getAddons.showPane" = false;
+      "extensions.htmlaboutaddons.recommendations.enabled" = false;
+      "browser.shell.checkDefaultBrowser" = false;
+      "browser.tabs.tabmanager.enabled" = false;
+      "extensions.pocket.enabled" = false;
+      "general.smoothScroll" = true;
+    };
+  };
   programs.steam.enable = true;
   virtualisation.docker = {
     enable = true;
