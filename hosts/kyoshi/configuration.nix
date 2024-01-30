@@ -40,7 +40,6 @@ in {
     interval = "weekly";
   };
 
-
   sound.enable = true;
 
   hardware = {
@@ -80,6 +79,8 @@ in {
   };
   programs.slock.enable = true;
 
+  services.libreddit.enable = true;
+  services.libreddit.address = "127.0.0.1";
 
   ## Package management
 
