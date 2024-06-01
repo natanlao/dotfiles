@@ -18,7 +18,7 @@ end
 
 function _lightmode
     if command -sq alacritty
-        ln -sf ~/.config/alacritty/solarized-light.yml ~/.config/alacritty/alacritty.yml
+        ln -sf ~/.config/alacritty/solarized-light.toml ~/.config/alacritty/alacritty.toml
     end
     if command -sq vim
         set --universal __VIM_COLOR_SCHEME "light"
@@ -27,7 +27,7 @@ end
 
 function _darkmode
     if command -sq alacritty
-        ln -sf ~/.config/alacritty/solarized-dark.yml ~/.config/alacritty/alacritty.yml
+        ln -sf ~/.config/alacritty/solarized-dark.toml ~/.config/alacritty/alacritty.toml
     end
     if command -sq vim
         set --universal __VIM_COLOR_SCHEME "dark"
