@@ -60,16 +60,19 @@ in {
 
   # xserver
   services = {
+    displayManager = {
+      autoLogin = {
+        enable = true;
+        user = "natan";
+      };
+      defaultSession = "none+i3";
+    };
+
     xserver = {
       enable = true;
       autorun = true;
       videoDrivers = [ "amdgpu" ];
 
-      displayManager.autoLogin = {
-        enable = true;
-        user = "natan";
-      };
-      displayManager.defaultSession = "none+i3";
 
       windowManager.i3 = {
         enable = true;

@@ -28,7 +28,7 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
   services.timesyncd.enable = true;
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
   time.timeZone = "America/Los_Angeles";
 
 
@@ -54,7 +54,7 @@
   ## Banish caps lock everywhere
 
   console.useXkbConfig = true;
-  services.xserver.xkbOptions = "caps:escape";
+  services.xserver.xkb.options = "caps:escape";
 
   ## Package management
 
