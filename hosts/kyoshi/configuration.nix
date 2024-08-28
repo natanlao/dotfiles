@@ -73,7 +73,6 @@ in {
       autorun = true;
       videoDrivers = [ "amdgpu" ];
 
-
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [dmenu i3status dunst xss-lock pa_applet];
@@ -114,12 +113,55 @@ in {
   programs.firefox = {
     enable = true;
     preferences = {
-      "extensions.getAddons.showPane" = false;
-      "extensions.htmlaboutaddons.recommendations.enabled" = false;
+      "app.shield.optoutstudies.enabled" = false;
+      "app.update.auto" = false;
+      "browser.aboutConfig.showWarning" = false;
+      "browser.safebrowsing.enabled" = false;
+      "browser.send_pings" = false;
       "browser.shell.checkDefaultBrowser" = false;
       "browser.tabs.tabmanager.enabled" = false;
+      "browser.urlbar.trimURLs" = false;
+      "device.sensors.ambientLight.enabled" = false;
+      "device.sensors.enabled" = false;
+      "device.sensors.motion.enabled" = false;
+      "device.sensors.orientation.enabled" = false;
+      "device.sensors.proximity.enabled" = false;
+      "dom.battery.enabled" = false;
+      "dom.event.clipboardevents.enabled" = false;
+      "dom.private-attribution.submission.enabled" = false;
+      "dom.security.https_only_mode" = false;
+      "dom.security.https_only_mode_ever_enabled" = false;
+      "dom.webaudio.enabled" = false;
+      "extensions.getAddons.showPane" = false;
+      "extensions.htmlaboutaddons.recommendations.enabled" = false;
       "extensions.pocket.enabled" = false;
       "general.smoothScroll" = true;
+      # "keyword.enabled" = false;
+      "network.IDN_show_punycode" = true;
+      "privacy.firstparty.isolate" = true;
+      "privacy.query_stripping" = true;
+      "privacy.trackingprotection.cryptomining.enabled" = true;
+      "privacy.trackingprotection.enabled" = true;
+      "privacy.trackingprotection.fingerprinting.enabled" = true;
+      "privacy.trackingprotection.pbmode.enabled" = true;
+      "privacy.usercontext.about_newtab_segregation.enabled" = true;
+      "signon.autofillForms" = false;
+    };
+    policies = {
+      "DisableFirefoxAccounts" = true;
+      "DisableFirefoxStudies" = true;
+      "DisableTelemetry" = true;
+      "DisablePocket" = true;
+      "ExtensionSettings" = {
+        "TemporaryContainers@stoically" = {
+          "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi";
+          "installation_mode" = "normall_installed";
+        };
+        "uBlock0@raymondhill.net" = {
+          "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          "installation_mode" = "normal_installed";
+        };
+      };
     };
   };
   programs.steam.enable = true;
