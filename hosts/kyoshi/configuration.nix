@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
@@ -7,6 +7,7 @@ in {
     dhcpcd.wait = "background";  # boot faster!
     hostId = "195126d9";
     hostName = "kyoshi";
+    dhcpcd.extraConfig = "nohook resolv.conf";
   };
 
   boot = {
@@ -40,49 +41,41 @@ in {
     interval = "weekly";
   };
 
-  sound.enable = true;
-
   hardware = {
     cpu.amd.updateMicrocode = true;
 
     keyboard.zsa.enable = true;
-
-    opengl = {
-      driSupport = true;
-      driSupport32Bit = true;
-    };
-
-    pulseaudio = {
-      enable = true;
-      support32Bit = true;
-    };
   };
 
-  # xserver
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
+
+  programs.niri.enable = true;
+
+  services.logind.suspendKey = "poweroff";
+
   services = {
     displayManager = {
       autoLogin = {
         enable = true;
         user = "natan";
       };
-      defaultSession = "none+i3";
-    };
-
-    xserver = {
-      enable = true;
-      autorun = true;
-      videoDrivers = [ "amdgpu" ];
-
-      windowManager.i3 = {
-        enable = true;
-        extraPackages = with pkgs; [dmenu i3status dunst xss-lock pa_applet];
-     };
+      defaultSession = "niri";
     };
   };
-  programs.slock.enable = true;
 
-  services.libreddit.enable = true;
-  services.libreddit.address = "127.0.0.1";
+  services.redlib = {
+    enable = true;
+    address = "127.0.0.1";
+    package = unstable.redlib;
+  };
+
+  services.rimgo.enable = true;
+  services.rimgo.settings.ADDRESS = "127.0.0.1";
 
   ## Package management
 
@@ -90,6 +83,7 @@ in {
   environment.variables.TERMINAL = "alacritty";
   environment.systemPackages = with pkgs; [
     alacritty
+    anki
     entr
     feh
     gnumake
@@ -100,16 +94,23 @@ in {
     mupdf
     python3
     sqlite
-    standardnotes
     thunderbird
     tree
     udiskie
+    vlc
+
+    xwayland-satellite
+    mako
+    waybar
+    fuzzel
+    gammastep
+
     unstable.discord
+    unstable.obsidian
     unstable.signal-desktop
     unstable.spotify
-    vlc
-    xclip
   ];
+  fonts.packages = with pkgs; [ font-awesome ];
   programs.firefox = {
     enable = true;
     preferences = {
@@ -168,7 +169,7 @@ in {
   virtualisation.docker = {
     enable = true;
     rootless = {
-      enable = true;
+      enable = false;
       setSocketVariable = true;
     };
   };
@@ -183,23 +184,15 @@ in {
     user = "natan";
   };
 
+  powerManagement.cpuFreqGovernor = "powersave";
+
   # TODO: NixOS/nixpkgs#119984
   services.udev.packages = with pkgs; [
     yubikey-personalization
   ];
 
-  location.provider = "geoclue2";
-  services.redshift = {
-    enable = true;
-    brightness = {
-      day = "1";
-      night = "1";
-    };
-    temperature = {
-      day = 5500;
-      night = 3700;
-    };
-  };
+  services.printing.enable = true;
+  services.printing.drivers = [ pkgs.brlaser ];
 
   system.stateVersion = "20.09";
 }
