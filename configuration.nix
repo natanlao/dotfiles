@@ -11,7 +11,7 @@
   system.autoUpgrade = {
     enable = true;
     allowReboot = lib.mkDefault false;
-    channel = "https://nixos.org/channels/nixos-25.05";
+    channel = "https://nixos.org/channels/nixos-25.11";
   };
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 10d";
@@ -54,7 +54,7 @@
 
   networking.nameservers = ["127.0.0.1" "::1"];
 
-  services.dnscrypt-proxy2 = {
+  services.dnscrypt-proxy = {
     enable = true;
     upstreamDefaults = false;
 
@@ -85,13 +85,13 @@
           "https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md"
           "https://download.dnscrypt.info/resolvers-list/v3/public-resolvers.md"
         ];
-        cache_file = "/var/lib/dnscrypt-proxy2/public-resolvers.md";
+        cache_file = "/var/lib/dnscrypt-proxy/public-resolvers.md";
         minisign_key = "RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3";
       };
     };
   };
 
-  systemd.services.dnscrypt-proxy2.serviceConfig = {
+  systemd.services.dnscrypt-proxy.serviceConfig = {
     StateDirectory = "dnscrypt-proxy";
   };
 
@@ -102,6 +102,19 @@
 
   ## Package management
 
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+    package = (pkgs.vim-full.override {  }).customize{
+      name = "vim";
+      vimrcConfig.customRC = "source ~/.vimrc";
+      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
+        start = [ vim-fish vim-nix ];
+        opt = [];
+      };
+    };
+  };
+
   environment.defaultPackages = lib.mkForce [];
   environment.systemPackages = with pkgs; [
     ack
@@ -110,14 +123,6 @@
     htop
     stow
     unzip
-    (if config.services.xserver.enable then (vim_configurable.customize{
-      name = "vim";
-      vimrcConfig.customRC = "source ~/.vimrc";
-      vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-fish vim-nix vim-terraform ];
-        opt = [];
-      };
-    }) else vim)
     wget
   ];
 

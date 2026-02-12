@@ -48,6 +48,7 @@ in {
   };
 
   security.rtkit.enable = true;
+  security.polkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -56,15 +57,31 @@ in {
 
   programs.niri.enable = true;
 
-  services.logind.suspendKey = "poweroff";
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "${pkgs.niri}/bin/niri-session";
+        user = "natan";
+      };
+      default_session = initial_session;
+    };
+  };
+
+  services.logind.settings.Login = {
+    HandlePowerKey = "poweroff";
+    HandleSuspendKey = "poweroff";
+    HandleRebootKey = "poweroff";
+    HandleHibernateKey = "poweroff";
+    HandlePowerKeyLongPress = "poweroff";
+    HandleSuspendKeyLongPress = "poweroff";
+    HandleRebootKeyLongPress = "poweroff";
+    HandleHibernateKeyLongPress = "poweroff";
+  };
 
   services = {
     displayManager = {
-      autoLogin = {
-        enable = true;
-        user = "natan";
-      };
-      defaultSession = "niri";
+      defaultSession = "niri-session";
     };
   };
 
@@ -77,13 +94,15 @@ in {
   services.rimgo.enable = true;
   services.rimgo.settings.ADDRESS = "127.0.0.1";
 
+  programs.waybar.enable = true;
+
   ## Package management
 
   nixpkgs.config.allowUnfree = true;
   environment.variables.TERMINAL = "alacritty";
   environment.systemPackages = with pkgs; [
     alacritty
-    anki
+    unstable.anki
     entr
     feh
     gnumake
@@ -97,18 +116,21 @@ in {
     thunderbird
     tree
     udiskie
+    wl-clipboard
     vlc
 
     xwayland-satellite
     mako
-    waybar
     fuzzel
+    rofi
     gammastep
 
     unstable.discord
+    unstable.google-chrome
     unstable.obsidian
     unstable.signal-desktop
     unstable.spotify
+    unstable.prismlauncher
   ];
   fonts.packages = with pkgs; [ font-awesome ];
   programs.firefox = {
