@@ -1,10 +1,20 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in {
+  unstable = import <nixos-unstable> {
+    config = {
+      allowUnfree = true;
+    };
+  };
+in
+{
   networking = {
-    dhcpcd.wait = "background";  # boot faster!
+    dhcpcd.wait = "background"; # boot faster!
     hostId = "195126d9";
     hostName = "kyoshi";
     dhcpcd.extraConfig = "nohook resolv.conf";
@@ -111,6 +121,7 @@ in {
     keepassxc
     libreoffice
     mupdf
+    nixfmt
     python3
     sqlite
     thunderbird
@@ -177,7 +188,8 @@ in {
       "DisablePocket" = true;
       "ExtensionSettings" = {
         "TemporaryContainers@stoically" = {
-          "install_url" = "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi";
+          "install_url" =
+            "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi";
           "installation_mode" = "normall_installed";
         };
         "uBlock0@raymondhill.net" = {

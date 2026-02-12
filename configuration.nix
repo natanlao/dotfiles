@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -17,12 +22,10 @@
   nix.gc.options = "--delete-older-than 10d";
   nix.settings.auto-optimise-store = true;
 
-
   ## Security
 
   security.sudo.execWheelOnly = true;
   nix.settings.allowed-users = [ "@wheel" ];
-
 
   ## Locale
 
@@ -31,17 +34,18 @@
   services.xserver.xkb.layout = "us";
   time.timeZone = "America/Los_Angeles";
 
-
   ## User accounts
 
   environment.variables.EDITOR = "vim";
   programs.fish.enable = true;
   users.users.natan = {
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+    ];
     isNormalUser = true;
     shell = pkgs.fish;
   };
-
 
   ## Networking
 
@@ -52,7 +56,10 @@
 
   ### DNS
 
-  networking.nameservers = ["127.0.0.1" "::1"];
+  networking.nameservers = [
+    "127.0.0.1"
+    "::1"
+  ];
 
   services.dnscrypt-proxy = {
     enable = true;
@@ -105,17 +112,20 @@
   programs.vim = {
     enable = true;
     defaultEditor = true;
-    package = (pkgs.vim-full.override {  }).customize{
+    package = (pkgs.vim-full.override { }).customize {
       name = "vim";
       vimrcConfig.customRC = "source ~/.vimrc";
       vimrcConfig.packages.myplugins = with pkgs.vimPlugins; {
-        start = [ vim-fish vim-nix ];
-        opt = [];
+        start = [
+          vim-fish
+          vim-nix
+        ];
+        opt = [ ];
       };
     };
   };
 
-  environment.defaultPackages = lib.mkForce [];
+  environment.defaultPackages = lib.mkForce [ ];
   environment.systemPackages = with pkgs; [
     ack
     curl
