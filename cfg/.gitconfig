@@ -23,6 +23,7 @@
 	promm = pull --rebase --autostash origin master
 	pfwl = push --force-with-lease
 	yeet = !"git commit --all --fixup HEAD && git push --force-with-lease"
+	fatp = fetch --all --tags --prune
 
 [apply]
 
@@ -98,7 +99,7 @@
 
 [merge]
 
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
@@ -118,6 +119,7 @@
 
 [rebase]
 	autoSquash = true
+	autoStash = true
 
 [delta]
 	navigate = true  # use n and N to move between diff sections
@@ -126,6 +128,17 @@
 
 [diff]
 	colorMoved = default
+	algorithm = histogram
+
+[transfer]
+	fsckobjects = true
+
+[fetch]
+	fsckobjects = true
+
+[receive]
+	fsckobjects = true
+
 [pull]
 	ff = only
 
