@@ -80,13 +80,6 @@ in
 
   services.logind.settings.Login = {
     HandlePowerKey = "poweroff";
-    HandleSuspendKey = "poweroff";
-    HandleRebootKey = "poweroff";
-    HandleHibernateKey = "poweroff";
-    HandlePowerKeyLongPress = "poweroff";
-    HandleSuspendKeyLongPress = "poweroff";
-    HandleRebootKeyLongPress = "poweroff";
-    HandleHibernateKeyLongPress = "poweroff";
   };
 
   services = {
