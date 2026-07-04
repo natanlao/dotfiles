@@ -570,7 +570,7 @@ binds {
 
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "gammastep-indicator"
-spawn-at-startup "swayidle" "-w" "timeout 601" "'niri msg action power-off-monitors'"
+spawn-at-startup "swayidle" "-w" "timeout" "301" "niri msg action power-off-monitors"
 spawn-at-startup "stretchly"
 
 environment {
