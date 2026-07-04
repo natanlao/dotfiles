@@ -260,10 +260,7 @@ prefer-no-csd
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
-
-// You can also set this to null to disable saving screenshots to disk.
-// screenshot-path null
+screenshot-path null
 
 // Animation settings.
 // The wiki explains how to configure individual animations:
@@ -572,9 +569,16 @@ binds {
 }
 
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "gammastep"
-spawn-at-startup "swayidle" "-w" "timeout" "601" "'niri msg action power-off-monitors'"
+spawn-at-startup "gammastep-indicator"
+spawn-at-startup "swayidle" "-w" "timeout 601" "'niri msg action power-off-monitors'"
+spawn-at-startup "stretchly"
 
 environment {
     DISPLAY ":0"
+}
+
+gestures {
+    hot-corners {
+        bottom-left
+    }
 }
